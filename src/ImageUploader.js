@@ -4,6 +4,7 @@ import ImageLogo from "./image.svg";
 import "./ImageUpload.css";
 
 const ImageUploader = () => {
+  const OnFileUploadToFirebase = () => {};
   return (
     <div className="outerBox">
       <div className="title">
@@ -15,12 +16,24 @@ const ImageUploader = () => {
           <img src={ImageLogo} alt="imagelogo" />
           <p>ここにドラッグ＆ドロップしてね</p>
         </div>
-        <input className="imageUploadInput" multiple name="imageURL" />
+        <input
+          className="imageUploadInput"
+          multiple
+          name="imageURL"
+          type="file"
+          accept=".png .jpeg .jpg"
+          onChange={OnFileUploadToFirebase}
+        />
       </div>
       <p>または</p>
       <Button variant="contained">
         ファイルを選択
-        <input className="imageUploadInput" />
+        <input
+          className="imageUploadInput"
+          type="file"
+          accept=".png .jpeg .jpg"
+          onChange={OnFileUploadToFirebase}
+        />
       </Button>
     </div>
   );
